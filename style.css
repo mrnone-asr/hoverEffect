@@ -1,0 +1,104 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    background-color: #131316;
+    color: aliceblue;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+}
+
+.top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.top h1 {
+    background-size: 200%;
+    animation: background-t 3s linear infinite;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background-image: linear-gradient(to right, #3172e4, #14459b, #6a0dd4, #8323f1, #00a5b2, #3172e4);
+}
+
+@keyframes background-t {
+    from {
+        background-position: 0% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: calc(100% - 20%);
+    margin: 4% 10%;
+
+}
+
+.card {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 260px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.card::before {
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 200ms;
+    background: radial-gradient(200px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.00));
+}
+
+.card:hover::before {
+    opacity: 1;
+}
+
+.card h1 {
+    color: #131316;
+}
+
+.card:hover h1 {
+    background-size: 200%;
+    animation: background-t 3s linear infinite;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background-image: linear-gradient(to right, #3172e4, #00a5b2, #296de4);
+}
+
+.preloader{
+    background: #131316 url(loader.gif) no-repeat center center;
+    background-size: 8%;
+    height: 100vh;
+    width: 100%;
+    position:fixed;
+    z-index: 10;
+}
